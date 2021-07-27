@@ -17,7 +17,7 @@ API name | gp2 | io1 | st1 | sc1 | Standard
 Volume size | 1 GiB - 16 TiB | 4 GiB - 16 TiB | 500 GiB - 16 TiB | 500 GiB - 16 TiB | GiB - 1 TiB
 Max IOPS / Volume | 16,000 | 64,000 | 500 | 250 | 40-200
 
-## Volumes & Snapshots
+## Volumes & Snapshots Exam Tips
 
 - Volumes exist on EBS. Think of EBS as a virtual hard disk.
 - Snapshots exist on S3. Think of snapshots as a photograph of the disk.
@@ -30,3 +30,23 @@ Max IOPS / Volume | 16,000 | 64,000 | 500 | 250 | 40-200
 - You can change EBS volume sizes on the fly, including changing the size and storage type.
 - To move an EC2 volume from one AZ to another, take a snapshot of it, create an AMI from the snapshot and then use the AMI to launch the EC2 instance in a new AZ.
 - To move an EC2 volume from one region to another, take a snapshot of it, create an AMI from the snapshot and then copy the AMI from one region to the other. Then use the copied AMI to launch the new EC2 instance in the new region.
+
+## Amazon Machine Image (AMI)
+You can select  your AMI based on:
+- Region.
+- Operating system.
+- Architecture (32-bit or 64-bit).
+- Launch Permissions.
+- Storage for the Root Device:
+  - Instance Store (EPHEMERAL STORAGE).
+  - EBS Backed Volumes.
+- All AMIs are categorized as either backed by Amazon EBS or backed by instance store.
+- **For EBS Volumes:** The root device for an instance launched from the AMI is an Amazon EBS volume created from an Amazon EBS snapshot.
+- **For Instance Store Volumes:** The root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3.
+
+## EBS vs Instance Store Exam Tips
+- Instance Store Volumes are sometimes called Ephemeral Storage.
+- Instance Store Volumes cannot be stopped. If the underlying host fails, you will lose your data.
+- EBS backed instances can be stopped. Ypu will not lose the data on this instance if it is stopped.
+- You can reboot both, you will not lose your data.
+- By default, both ROOT volumes will be deleted on termination. However, with EBS volumes, you can tell AWS to keep the root device volume.

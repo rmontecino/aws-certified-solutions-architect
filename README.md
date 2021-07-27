@@ -4,3 +4,4 @@ Notes and guidelines for the AWS Certified Solutions Architect exam.
 - **AWS Compute**
   - [AWS EC2](aws-ec2/aws-ec2.md)
   - [AWS Elastic Block Store (EBS)](aws-ec2/aws-ebs.md)
+  - [ENI vs ENA vs EFA](aws-ec2/aws-eni-ena-efa.md)
